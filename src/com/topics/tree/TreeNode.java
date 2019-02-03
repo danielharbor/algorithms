@@ -1,4 +1,4 @@
-package com.topics.trees;
+package com.topics.tree;
 
 public class TreeNode {
     int val;

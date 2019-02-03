@@ -1,3 +1,5 @@
+package com.topics.string;
+
 // Uses rolling hash technique: compare key hash with hash of substrings
 public class RabinKarp {
     public static void main(String[] args) {
