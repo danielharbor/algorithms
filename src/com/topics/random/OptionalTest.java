@@ -4,7 +4,7 @@ import java.util.Deque;
 import java.util.ArrayDeque;
 import java.util.Optional;
 
-public class Random {
+public class OptionalTest {
 
     static void playAroundWithOptional() {
         Deque<Optional<Integer>> stack = new ArrayDeque();
