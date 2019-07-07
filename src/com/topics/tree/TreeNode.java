@@ -12,6 +12,14 @@ public class TreeNode {
         val = x;
     }
 
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(3);
+        root.left = new TreeNode(1);
+        root.right = new TreeNode(4);
+        root.left.right = new TreeNode(2);
+        iterativeInorder(root);
+    }
+
     /**
     * Iterative tree traversal methods
     * @param root the root of the tree to traverse
@@ -79,13 +87,5 @@ public class TreeNode {
                 System.out.println(stack.pop().val);
             }
         }
-    }
-
-    public static void main(String[] args) {
-        TreeNode root = new TreeNode(3);
-        root.left = new TreeNode(1);
-        root.right = new TreeNode(4);
-        root.left.right = new TreeNode(2);
-        iterativePreorder2(root);
     }
 }
