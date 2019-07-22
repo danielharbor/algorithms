@@ -19,8 +19,7 @@ public class AdjacencyListGraph<T> {
     }
 
     public void addEdge(GraphNode from, GraphNode to) {
-        graph.putIfAbsent(from, new HashSet());
-        Set<GraphNode> edges = graph.get(from);
+        Set<GraphNode> edges = graph.computeIfAbsent(from, k -> new HashSet());
         if (to != null) {
             graph.putIfAbsent(to, new HashSet());
             edges.add(to);
