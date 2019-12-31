@@ -3,6 +3,7 @@ package com.topics.datastructures;
 import java.util.PriorityQueue;
 import java.util.Comparator;
 import java.util.Iterator;
+import java.util.Arrays;
 
 public class Heap {
 
@@ -18,15 +19,19 @@ public class Heap {
         }
     }
 
+    static void addNums(PriorityQueue<Integer> heap) {
+        int[] nums = {3, 99, 25};
+        Arrays.stream(nums).forEach(num -> heap.offer(num));
+    }
+
     /*
-    * Demonstration of using PriorityQueue as min heap
+    * Example of using PriorityQueue as min heap
     */
     static void minHeapImplementation() {
+        System.out.println("==============================================================");
         System.out.println("Min Heap Start");
         PriorityQueue minHeap = new PriorityQueue();
-        minHeap.offer(3);
-        minHeap.offer(99);
-        minHeap.offer(25);
+        addNums(minHeap);
         System.out.println("Backing array isn't necessarily ordered: " + minHeap);
 
         System.out.println("Iterating through elements doesn't guarantee any ordering:");
@@ -43,17 +48,19 @@ public class Heap {
         System.out.println();
 
         System.out.println("Min Heap End");
+        System.out.println("==============================================================");
     }
 
     /*
     * Example of using PriorityQueue as max heap
     */
     static void maxHeapImplementation() {
+        System.out.println("==============================================================");
         System.out.println("Max Heap Start");
         PriorityQueue<Integer> maxHeap = new PriorityQueue(new MaxHeapComparator());
-        maxHeap.offer(3);
-        maxHeap.offer(99);
-        maxHeap.offer(25);
+        // Alternatively, using lambda
+        // PriorityQueue<Integer> maxHeap = new PriorityQueue<Integer>((a, b) -> b - a);
+        addNums(maxHeap);
         System.out.println("Backing array isn't necessarily ordered: " + maxHeap);
 
         System.out.println("Iterating through elements doesn't guarantee any ordering:");
@@ -70,5 +77,6 @@ public class Heap {
         System.out.println();
 
         System.out.println("Max Heap End");
+        System.out.println("==============================================================");
     }
 }
