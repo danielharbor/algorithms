@@ -40,7 +40,19 @@ public class MeetingTimes {
         return res;
     }
 
-    static int[] convertTimeToInt(String start, String end) {
+    static int getTimeDiff(String start, String end) {
+        int startHour = Integer.parseInt(start.substring(0, 2));
+        int startMin = Integer.parseInt(start.substring(3));
+        int endHour = Integer.parseInt(end.substring(0, 2));
+        int endMin = Integer.parseInt(end.substring(3));
+
+        // include time difference in response
+        int hourDiff = (endHour - startHour) * 60;
+        int minDiff = endMin - startMin;
+        return hourDiff + minDiff;
+    }
+
+    static int[] convertPeriodToInts(String start, String end) {
         int startInt = Integer.parseInt(start.substring(0, 2) + start.substring(3));
         int endInt = Integer.parseInt(end.substring(0, 2) + end.substring(3));
         return new int[]{startInt, endInt};
@@ -48,17 +60,18 @@ public class MeetingTimes {
 
     static String[] getPeriodsOverlap(String[] a, String[] b, int duration) {
         String[] overlap = null;
-        int[] periodA = convertTimeToInt(a[0], a[1]);
-        int[] periodB = convertTimeToInt(b[0], b[1]);
+        int[] periodA = convertPeriodToInts(a[0], a[1]);
+        int[] periodB = convertPeriodToInts(b[0], b[1]);
 
-        // check if periods overlap
         boolean periodsOverlap = periodA[0] < periodB[1] && periodB[0] < periodA[1];
-        boolean overlapIsLongEnough = (periodA[1] - periodA[0]) >= duration;
 
-        if (periodsOverlap && overlapIsLongEnough) {
+        if (periodsOverlap) {
             String overlapStart = periodA[0] < periodB[0] ? b[0] : a[0]; // take max time as start
             String overlapEnd = periodA[1] < periodB[1] ? a[1] : b[1]; // take min time as end
-            overlap = new String[]{overlapStart, overlapEnd};
+            int overlapDuration = getTimeDiff(overlapStart, overlapEnd);
+            if (overlapDuration >= duration) {
+                overlap = new String[]{overlapStart, overlapEnd};
+            }
         }
 
         return overlap;
