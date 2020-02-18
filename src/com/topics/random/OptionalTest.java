@@ -7,7 +7,7 @@ import java.util.Optional;
 public class OptionalTest {
 
     static void playAroundWithOptional() {
-        Deque<Optional<Integer>> stack = new ArrayDeque();
+        Deque<Optional<Integer>> stack = new ArrayDeque<>();
         stack.push(Optional.of(3));
 
         // ofNullable enables the use of null values with ArrayDeque
@@ -16,8 +16,7 @@ public class OptionalTest {
 
         while (!stack.isEmpty()) {
             // note what happens when you call without .orElse
-            // values are not unwrapped
-            System.out.println("Wrapped: " + stack.peek());
+            System.out.println("Wrapped: " + stack.peek());  // value is wrapped
             System.out.println("Unwrapped: " + stack.peek().orElse(-1));
             stack.pop();
         }
