@@ -58,8 +58,9 @@ public class Heap {
         System.out.println("==============================================================");
         System.out.println("Max Heap Start");
         PriorityQueue<Integer> maxHeap = new PriorityQueue(new MaxHeapComparator());
-        // Alternatively, using lambda
+        // Alternatively, using lambda or Comparator
         // var maxHeap = new PriorityQueue<Integer>((a, b) -> b - a);
+        // var maxHeap = new PriorityQueue<Integer>(Comparator.reverseOrder());
         addNums(maxHeap);
         System.out.println("Backing array isn't necessarily ordered: " + maxHeap);
 

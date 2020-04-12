@@ -24,6 +24,7 @@ public class MeetingTimes {
         System.out.println(getValidMeetingTimes(schedule1, schedule2, validHours, duration));
     }
 
+    // Solution 1: Most likely invalid solution
     static List<List<String>> getValidMeetingTimes(String[][] schdlA, String[][] schdlB, String[] validHours, int duration) {
         List<List<String>> res = new ArrayList<>();
         List<String[]> timesA = getValidTimes(schdlA, validHours, duration);
@@ -92,5 +93,10 @@ public class MeetingTimes {
         }
 
         return res;
+    }
+
+    // Solution 2: merge both schedules and check for valid windows in merged schedule
+    List<List<String>> getValidMeetingTimes2(String[][] schdlA, String[][] schdlB, String[] validHours, int duration) {
+        return new ArrayList<>();
     }
 }
