@@ -1,6 +1,5 @@
 package com.topics.random;
 
-import java.io.*;
 import java.util.*;
 
 /*

@@ -22,10 +22,15 @@ public class QuickSort {
     }
 
     static int partition(int[] arr, int lo, int hi) {
+        // picking the last element in the partition as pivot.
+        // Note that although the pivot doesn't have to be the first/last element, it should be moved
+        // to either ends of the partition prior to the swapping. A more efficient pivot picker would
+        // use some sort of algorithm to determine the pivot, and then move that element to either the
+        // lo or hi position e.g. swap(pivot, hi), before starting the partition.
         int i = lo, pivot = arr[hi];
 
-        for (int j = lo; j < hi; j++) {
-            if (arr[j] <= pivot) {
+        for (int j = lo; j < hi; j++) {  // go up to one less than pivot/hi
+            if (arr[j] < pivot) {
                 swap(arr, i++, j);
             }
         }
