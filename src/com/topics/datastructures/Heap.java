@@ -30,7 +30,7 @@ public class Heap {
     static void minHeapImplementation() {
         System.out.println("==============================================================");
         System.out.println("Min Heap Start");
-        PriorityQueue minHeap = new PriorityQueue();
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
         addNums(minHeap);
         System.out.println("Backing array isn't necessarily ordered: " + minHeap);
 
