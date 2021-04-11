@@ -1,5 +1,6 @@
 import java.util.Deque;
 import java.util.ArrayDeque;
+import static java.lang.System.out;
 
 public class Stack {
     public static void main(String[] args) {
@@ -8,10 +9,12 @@ public class Stack {
         stack.push(1);
         stack.push(8);
         stack.push(3);
-        System.out.println("Stack: " + stack);
-        stack.pop();
-        System.out.println("Stack: " + stack);
-        stack.pop();
-        System.out.println("Stack: " + stack);
+        out.println("Original stack: " + stack);
+        out.println("popped: " + stack.pop());
+        out.println("Updated stack: " + stack);
+        out.println("popped: " + stack.pop());
+        out.println("Updated stack: " + stack);
+        out.println("popped: " + stack.pop());
+        out.println("Updated stack: " + stack);
     }
 }
