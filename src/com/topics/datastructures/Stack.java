@@ -9,8 +9,10 @@ public class Stack {
         stack.push(1);
         stack.push(8);
         stack.push(3);
+        out.println("Top of stack: " + stack.peek());
         out.println("Original stack: " + stack);
         out.println("popped: " + stack.pop());
+        out.println("Top of stack: " + stack.peek());
         out.println("Updated stack: " + stack);
         out.println("popped: " + stack.pop());
         out.println("Updated stack: " + stack);
