@@ -18,5 +18,7 @@ public class Stack {
         out.println("Updated stack: " + stack);
         out.println("popped: " + stack.pop());
         out.println("Updated stack: " + stack);
+        out.println("popped: " + stack.pop());
+        out.println("Top of stack: " + stack.peek());
     }
 }
