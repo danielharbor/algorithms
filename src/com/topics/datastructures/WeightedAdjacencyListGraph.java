@@ -13,10 +13,6 @@ public class WeightedAdjacencyListGraph<T, W extends Comparable<W>> {
         graph = new HashMap<T, Set<Edge<T, W>>>();
     }
 
-    public Map<T, Set<Edge<T, W>>> getGraph() {
-        return graph;
-    }
-
     public void addEdge(T from, T to, W weight) {
         Set<Edge<T, W>> edges = graph.computeIfAbsent(from, k -> new HashSet<Edge<T, W>>());
         if (to != null) {
@@ -26,9 +22,27 @@ public class WeightedAdjacencyListGraph<T, W extends Comparable<W>> {
         }
     }
 
-    private class Edge<V, U extends Comparable<U>> {
-        private V vertex;
-        private U weight;
+    public Set<Edge<T, W>> getEdges(T vertex) {
+        return graph.get(vertex);
+    }
+
+    public W getWeight(T from, T to) {
+        for (Edge<T, W> edge : graph.get(from)) {
+            if (edge.vertex == to) {
+                return edge.weight;
+            }
+        }
+        return null;
+    }
+
+    public Set<T> getAllVertices() {
+        return graph.keySet();
+    }
+
+    public class Edge<V, U extends Comparable<U>> {
+        public V vertex;
+        public U weight;
+
         Edge(V vertex, U weight) {
             this.vertex = vertex;
             this.weight = weight;
@@ -36,7 +50,7 @@ public class WeightedAdjacencyListGraph<T, W extends Comparable<W>> {
 
         @Override
         public String toString() {
-            return vertex.toString() + " (" + weight.toString() + ")";
+            return vertex.toString() + "(" + weight.toString() + ")";
         }
     }
 
@@ -50,11 +64,15 @@ public class WeightedAdjacencyListGraph<T, W extends Comparable<W>> {
     }
 
     public static void main(String[] args) {
-        WeightedAdjacencyListGraph<String, Integer> graph2 = new WeightedAdjacencyListGraph<>();
-        graph2.addEdge("abc", "def", 2);
-        graph2.addEdge("abc", "abc", 3);
-        graph2.addEdge("def", "xyz", 1);
-        graph2.addEdge("abc", "xyz", 9);
-        System.out.println(graph2);
+        WeightedAdjacencyListGraph<String, Integer> graph = new WeightedAdjacencyListGraph<>();
+        graph.addEdge("abc", "def", 2);
+        graph.addEdge("abc", "abc", 3);
+        graph.addEdge("def", "xyz", 1);
+        graph.addEdge("abc", "xyz", 9);
+        System.out.println("Entire graph");
+        System.out.println("===============");
+        System.out.println(graph);
+        System.out.println("All vertices: " + graph.getAllVertices());
+        System.out.println("Edges for single vertex: " + graph.getEdges("abc"));
     }
 }
