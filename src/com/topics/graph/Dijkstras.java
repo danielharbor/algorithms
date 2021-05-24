@@ -68,7 +68,7 @@ public class Dijkstras {
 
         while (!unvisited.isEmpty()) {
             // find the unvisited vertex with the smallest known distance from the start vertex
-            // first time around, this is the start vertex, with distance 0
+            // the first time around, this is the start vertex, with distance 0
             String curVertex = findSmallestUnvisitedVertex(map);
             updateUnvisitedNeighbors(map, curVertex);
             unvisited.remove(curVertex);
