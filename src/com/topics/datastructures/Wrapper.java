@@ -1,9 +1,12 @@
 package com.topics.datastructures;
 
-public class GraphNode <T> {
+/*
+ Dummy wrapper over a generic value.
+*/
+public class Wrapper<T> {
     private T value;
 
-    public GraphNode(T val) {
+    public Wrapper(T val) {
         value = val;
     }
 
@@ -29,20 +32,20 @@ public class GraphNode <T> {
         }
 
         // it checks if the argument is of the
-        // type GraphNode by comparing the classes
+        // type Wrapper by comparing the classes
         // of the passed argument and this object.
-        // if(!(obj instanceof GraphNode)) return false; ---> avoid doing this.
-        if(obj == null || obj.getClass()!= this.getClass()) {
+        // if(!(obj instanceof Wrapper)) return false; ---> avoid doing this.
+        if(obj == null || obj.getClass() != this.getClass()) {
             return false;
         }
 
         // type casting of the argument.
-        GraphNode graphNode = (GraphNode) obj;
+        Wrapper wrapper = (Wrapper) obj;
 
         // comparing the state of argument with
         // the state of 'this' Object.
-        return graphNode.value.equals(this.value);
-        // return (graphNode.value.equals(this.value) && graphNode.id == this.id);
+        return wrapper.value.equals(this.value);
+        // return (wrapper.value.equals(this.value) && wrapper.id == this.id);
     }
 
     @Override
