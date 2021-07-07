@@ -9,7 +9,7 @@ import java.util.HashMap;
  Implementation of Dijkstra's algorithm
  Based on https://www.youtube.com/watch?v=pVfj6mxhdMw
 */
-public class Dijkstras {
+public class DijkstrasAdjList {
     static WeightedAdjacencyListGraph<String, Integer> graph;
     static Set<String> unvisited;
 
