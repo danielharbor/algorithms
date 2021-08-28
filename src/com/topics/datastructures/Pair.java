@@ -5,6 +5,9 @@ import java.util.Map;
 import java.util.HashSet;
 import java.util.Set;
 
+/*
+ * Reference: https://www.techiedelight.com/five-alternatives-pair-class-java/
+ */
 public class Pair {
     static <T, U> Map.Entry<T, U> of(T first, U second) {
         return new AbstractMap.SimpleEntry<>(first, second);
