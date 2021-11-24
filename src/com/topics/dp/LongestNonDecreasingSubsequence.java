@@ -11,7 +11,10 @@ public class LongestNonDecreasingSubsequence {
     }
 
     static int findLongestNonDecreasingSubsequence(int[] nums) {
-        int dp[] = new int[nums.length], longest = 0;
+        if (nums.length == 0) {
+            return 0;
+        }
+        int dp[] = new int[nums.length], longest = 1;
         java.util.Arrays.fill(dp, 1); // Each element is a non-decreasing subsequence of length 1
         for (int j = 0; j < nums.length; ++j) {
             for (int i = 0; i < j; ++i) {
