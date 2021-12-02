@@ -57,7 +57,7 @@ public class Heap {
     static void maxHeapImplementation() {
         System.out.println("==============================================================");
         System.out.println("Max Heap Start");
-        PriorityQueue<Integer> maxHeap = new PriorityQueue(new MaxHeapComparator());
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(new MaxHeapComparator());
         // Alternatively, using lambda or Comparator
         // var maxHeap = new PriorityQueue<Integer>((a, b) -> b - a);
         // var maxHeap = new PriorityQueue<Integer>(Comparator.reverseOrder());
